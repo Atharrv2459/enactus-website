@@ -35,8 +35,8 @@ img {
 
 /* Header */
 .main-header {
-    background-color: #EAAD00; /* The soft, peachy-orange from your design */
-    padding: 0px 0;
+    background-color: #EAAD00;
+    padding: 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -58,6 +58,7 @@ img {
 .main-nav ul {
     display: flex;
     gap: 30px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .main-nav a {
@@ -72,25 +73,17 @@ img {
     color: #fff;
 }
 
-.share-button button {
-    background-color: #fff;
-    color: #333;
+.menu-toggle {
+    display: none;
+    background: none;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    font-size: 30px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.share-button button:hover {
-    background-color: #eee;
 }
 
 /* Hero Section */
 .hero-section {
-    background-color: white; /* The light, creamy beige from your design */
+    background-color: white;
     padding: 80px 0;
     min-height: 500px;
 }
@@ -120,163 +113,276 @@ img {
     max-width: 600px;
 }
 
-/* Flagship Events Section */
-.flagship-events-section {
-    padding: 80px 0;
-    background-color: #fff;
-    text-align: center;
+/* Hero Animation */
+.hero-content h1 span {
+    display: block;
 }
 
-.flagship-events-section h2 {
+@keyframes colorChange {
+    0%, 100% { color: #000; }
+    50% { color: #EAAD00; }
+}
+
+.hero-content h1 span:nth-child(1) { animation: colorChange 4s infinite; }
+.hero-content h1 span:nth-child(2) { animation: colorChange 4s infinite 1s; }
+.hero-content h1 span:nth-child(3) { animation: colorChange 4s infinite 2s; }
+.hero-content h1 span:nth-child(4) { animation: colorChange 4s infinite 3s; }
+
+/* Flagship Events Section */
+#flagship-events-section, #foosball, #projects, #about, #members {
+    padding: 50px 0;
+}
+
+#flagship-events-section h2, #foosball h2, #projects h2, #about h2, #members h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 42px;
     font-weight: 700;
     color: #000;
     margin-bottom: 50px;
+    text-align: center;
 }
 
-.event-card {
+.flagship-card {
     display: flex;
-    background-color: #fff;
+    background-color: #EAAD00;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    margin-bottom: 40px;
     overflow: hidden;
-    text-align: left;
 }
 
-.event-card:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.event-image {
+.flagship-image-container {
     flex: 1;
-    min-width: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F7DBB4; /* The same peachy-orange as the header */
     padding: 30px;
 }
 
-.event-image img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.event-details {
+.flagship-details {
     flex: 1.5;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.event-details h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 15px;
+.flagship-logo {
+    height: 70px;
+    margin-bottom: 20px;
 }
 
-.event-details p {
+.flagship-details p {
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-    color: #666;
-    margin-bottom: 25px;
+    color: black;
     line-height: 1.8;
 }
 
-.event-details .read-more {
-    display: inline-block;
+/* Human Foosball Section */
+.foosball-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: #F0F0F0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.foosball-text {
+    flex: 1;
+    text-align: left;
+}
+
+.foosball-text p {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    color: #4CAF50;
     font-size: 18px;
-    transition: color 0.3s ease;
+    color: #666;
+    line-height: 1.8;
 }
 
-.event-details .read-more:hover {
-    color: #3e8e41;
+.foosball-image {
+    flex: 1;
+    text-align: right;
 }
 
-/* Footer (basic placeholder) */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-    margin-top: 50px;
+/* Projects Section */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    background-color: #F8F8F8;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.project-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    flex-shrink: 0;
+    width: 150px;
+    text-align: left;
+}
+
+.project-card p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* About Us Section */
+#about {
+    background-color: #EAAD00;
+}
+
+.about-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: left;
+}
+
+.about-card p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Members Grid Section */
+#members {
+    background-color: #EAAD00;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    position: relative;
+    width: 100%;
+    padding-top: 141.2%; /* Aspect ratio of 330/466 */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-header .container {
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    .main-header .logo {
+        padding: 10px 20px;
+    }
+
+    .main-nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1;
+    }
+
+    .menu-toggle {
+        display: block;
+        color: #fff;
+    }
+
+    .nav-links {
         flex-direction: column;
-        gap: 15px;
+        background-color: #EAAD00;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
     }
-    .main-nav ul {
-        gap: 15px;
+
+    .nav-links.active {
+        transform: translateX(0);
     }
+
+    .nav-links li {
+        margin-bottom: 15px;
+        text-align: right;
+    }
+
     .hero-section .container {
         flex-direction: column;
         text-align: center;
     }
+
     .hero-content h1 {
         font-size: 50px;
     }
+
     .hero-image {
         width: 80%;
     }
-    .flagship-events-section h2 {
-        font-size: 32px;
-    }
-    .event-card,
-    .event-card:nth-child(even) {
+
+    /* Stack flexbox layouts vertically */
+    .flagship-card, .foosball-card, .project-card {
         flex-direction: column;
+        text-align: center;
     }
-    .event-image {
-        min-width: unset;
-        width: 100%;
+
+    .flagship-details, .foosball-text {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .foosball-image {
+        text-align: center;
+    }
+
+    /* Adjust font sizes for mobile */
+    #flagship-events-section h2, #foosball h2, #projects h2, #about h2, #members h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .about-card, .project-card {
         padding: 20px;
     }
-    .event-details {
-        padding: 30px;
-    }
-    .event-details h3 {
-        font-size: 28px;
-    }
-    .event-details p {
+
+    .about-card p, .project-card p {
         font-size: 16px;
     }
-}
 
-/* All previous CSS remains the same. Add this new section at the end. */
-
-/*--------------------
- Hero Animation
---------------------*/
-.hero-content h1 span {
-    display: block; /* Make each word a block element to animate individually */
-}
-
-@keyframes colorChange {
-    0%, 100% { color: #000; } /* Start and end color (black) */
-    50% { color: #EAAD00; } /* Mid-point color (orange) */
-}
-
-/* Apply the animation with a staggered delay */
-.hero-content h1 span:nth-child(1) {
-    animation: colorChange 4s infinite; /* 4 seconds total duration */
-}
-
-.hero-content h1 span:nth-child(2) {
-    animation: colorChange 4s infinite 1s; /* Starts 1 second after the first */
-}
-
-.hero-content h1 span:nth-child(3) {
-    animation: colorChange 4s infinite 2s; /* Starts 2 seconds after the first */
-}
-
-.hero-content h1 span:nth-child(4) {
-    animation: colorChange 4s infinite 3s; /* Starts 3 seconds after the first */
+    .project-card h3 {
+        width: auto;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 }
